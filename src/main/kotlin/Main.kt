@@ -33,6 +33,8 @@ fun App() {
 @Composable
 fun Content(modifier: Modifier = Modifier){
     var text by remember { mutableStateOf("") }
+    var ban by remember { mutableStateOf("") }
+
     Column(modifier = modifier.padding(8.dp)) {
         OutlinedTextField(
             value = text,
@@ -41,10 +43,12 @@ fun Content(modifier: Modifier = Modifier){
         )
         Spacer(modifier.size(8.dp))
         Button(onClick = {
+            ban = text
         }) {
             Text("Нажать нежно")
         }
-        Text(text, modifier = Modifier.fillMaxWidth())
+        Text(ban, modifier = Modifier.fillMaxWidth())
+
     }
 }
 
